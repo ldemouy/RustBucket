@@ -1,0 +1,6 @@
+[package]
+name = "RustBucket"
+version = "0.1.0"
+authors = ["Luke De Mouy", "Beta Wolfpup]
+
+[dependencies]
