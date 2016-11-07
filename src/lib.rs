@@ -1,6 +1,4 @@
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-    }
-}
+mod models;
+mod views;
+mod controllers;
+mod tests;
