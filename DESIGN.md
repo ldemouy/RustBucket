@@ -26,16 +26,35 @@ functions at a minimum:
 
     * getCommands() -> List<String>
     * execute(command : String, arguments : String, user : UserInfo)
+    * supportedProtocol() -> Enum of Protocols (Protocol::Any as an example)
 
 UserInfo should contain available information about the user (name and such)
 as well as permission information, and the origin of the user so that we can
 discriminate whether a command should be run based upon whether it comes from
 telegram, the local host, or other sources. In the configuration this should
-probably be handled as a list of allowed hosts for a module.
+probably be handled as a list of allowed hosts for a module. Additionally
+UserInfo should have a protocol element telling us what kind of protocol
+(Telegram, IRC, etc) that it's using.
 
 Ideally we should be able to extend the bot capabilities of the bot
 just by writing a bot command and configuration module and injecting
 the configuration module into the configurator.
+
+Bot Commands will need to speak an internal protocol specific to RustBucket
+that they will export as a list<RustyBotProtocol> to be spoken to the connection.
+It might also be of benefit to have a broadcast token to send a message to all open
+connections, for implementing something such as functionality to restart the bot.
+
+RustBucket Protocol should be implemented as an enum and should have at least the
+following:
+
+    * Send Message
+    * Send Command
+    * Join
+    * Leave
+    * Keep Alive
+    * Open Connection
+    * Close Connection
 
 # View
 The view is the http/https socket which will run in it's own thread
