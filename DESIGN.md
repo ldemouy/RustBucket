@@ -53,6 +53,7 @@ The controller should support a security infrastructure to recognize
 users that message it and grant tiered priveleged access as follows:
 
 Priveleges:
+
     1. Localhost
     2. Bot owners
     3. Group Owners / Admins of the current group it's in
