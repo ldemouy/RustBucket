@@ -28,7 +28,10 @@ functions at a minimum:
     * execute(command : String, arguments : String, user : UserInfo)
 
 UserInfo should contain available information about the user (name and such)
-as well as permission information.
+as well as permission information, and the origin of the user so that we can
+discriminate whether a command should be run based upon whether it comes from
+telegram, the local host, or other sources. In the configuration this should
+probably be handled as a list of allowed hosts for a module.
 
 Ideally we should be able to extend the bot capabilities of the bot
 just by writing a bot command and configuration module and injecting
